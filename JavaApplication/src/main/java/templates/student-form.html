@@ -1,0 +1,36 @@
+<!-- student-form.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Form</title>
+</head>
+<body>
+    <h1>Student Form</h1>
+    <form th:action="@{/students/save}" th:object="${student}" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" th:field="*{name}" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" th:field="*{email}" required><br>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" th:field="*{dob}" required><br>
+
+        <label for="course">Course:</label>
+        <select id="course" name="course" th:field="*{course}" required>
+            <option value="Engineering">Engineering</option>
+            <option value="Computer Science">Computer Science</option>
+            <option value="IT">IT</option>
+        </select><br>
+
+        <label>Gender:</label>
+        <input type="radio" name="gender" value="Male"> Male
+        <input type="radio" name="gender" value="Female"> Female<br>
+        
+        <!-- Add any additional form elements as needed -->
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
